@@ -51,7 +51,7 @@ def Play():
     #---------------------------------Main-Window-Settings---------------------------------------
     window_width = 1024
     window_height = 512
-    fps = 120
+    fps = 60
 
     window = pygame.display.set_mode((window_width, window_height))
     pygame.display.set_caption('Pirate Hunter')
@@ -139,9 +139,10 @@ def Play():
 
         if keys[pygame.K_DOWN] and hunter.y <= window_height - hunter.height - hunter.vel:
             hunter.y += hunter.vel
+        
                 
         if pirate.x > 0:
-            pirate.x -= pirate.vel + ((level*2) + 1)
+            pirate.x -= pirate.vel + (level*2)
             if pirate.x <= hunter.x + hunter.width and (pirate.y <= hunter.y <= pirate.y + pirate.height or hunter.y <= pirate.y <= hunter.y + hunter.height):
                 window.blit(boom, (pirate.x,round(pirate.y + pirate.height / 4)))
                 pygame.display.update()
@@ -170,7 +171,7 @@ def run_game():
     pirate_ = pygame.image.load('pirate.png')
     flag = pygame.image.load('flag.png')
     title = pygame.image.load('title.jpg')
-    font = pygame.font.SysFont('rod', 72)
+    font = pygame.font.SysFont('verdana', 72)
     font2 = pygame.font.SysFont('newcourier', 22)
     start_color = (100,100,100)
     exit_color = (100,100,100)
@@ -187,8 +188,8 @@ def run_game():
         screen.blit(wheel, (start_x + button_width,start_y))
         pygame.draw.rect(screen, exit_color, (exit_x, exit_y, button_width, button_height))
         screen.blit(door, (exit_x + button_width, exit_y))
-        screen.blit(start_text, (399, start_y))
-        screen.blit(exit_text, (422, exit_y))
+        screen.blit(start_text, (399, start_y-10))
+        screen.blit(exit_text, (422, exit_y-10))
         screen.blit(title, (287, 81))
         screen.blit(pirate_, (182,81))
         screen.blit(flag, (0,409))
@@ -200,7 +201,7 @@ def run_game():
         clock.tick(fps) 
         start_text = font.render('START', True, (255,255,255))
         exit_text = font.render('EXIT', True, (255,255,255))
-        credit = font2.render('Developed By:  Mesut Kihal', True, (0,0,0))
+        credit = font2.render('Developed By:  Messaoud Kihal', True, (0,0,0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -218,4 +219,6 @@ def run_game():
         start_color = (100,100,100)
         exit_color = (100,100,100)
     pygame.quit()
-run_game()
+
+if __name__ == '__main__':
+    run_game()
