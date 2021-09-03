@@ -8,4 +8,4 @@ Python
 
 <h2>Requirements</h2>
 
-Pygame
+* pygame==2.0.1
