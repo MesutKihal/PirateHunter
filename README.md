@@ -9,3 +9,6 @@ Python
 <h2>Requirements</h2>
 
 * pygame==2.0.1
+<h2>Preview</h2>
+
+![Github Logo](https://github.com/MesutKihal/PirateHunter/blob/master/screenshot.PNG)
